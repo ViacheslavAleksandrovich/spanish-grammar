@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spanish Grammar</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-brand">
+      <span class="logo" aria-hidden="true">🇪🇸</span>
+      <h1>Spanish Grammar</h1>
+    </div>
+    <div class="progress-indicator">
+      <span id="progress-text">0/26 topics completed</span>
+      <div class="header-progress-bar">
+        <div class="header-progress-fill" id="header-progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="overlay" id="overlay"></div>
+
+    <nav class="sidebar" id="sidebar" aria-label="Topics navigation">
+      <div class="sidebar-header">
+        <span>📚 Topics</span>
+      </div>
+      <ul class="topic-list" id="topic-list">
+        <!-- Rendered by JS -->
+      </ul>
+    </nav>
+
+    <main class="main-content" id="main-content" role="main">
+      <!-- Rendered by JS -->
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/exercises.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
