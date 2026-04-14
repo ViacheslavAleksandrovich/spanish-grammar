@@ -33,7 +33,8 @@ function renderSidebar() {
   topicList.innerHTML = '';
   topics.forEach(topic => {
     const score = state.scores[topic.id];
-    const isComplete = score && score.total > 0 && score.correct === score.total;
+    const topicExerciseCount = (exercises[topic.id] || []).length;
+    const isComplete = score && topicExerciseCount > 0 && score.correct === score.total && score.total === topicExerciseCount;
     const isActive = topic.id === state.currentTopic;
 
     const li = document.createElement('li');
@@ -452,7 +453,7 @@ function updateProgress() {
   topics.forEach(topic => {
     const score = state.scores[topic.id];
     const topicExercises = exercises[topic.id] || [];
-    if (score && topicExercises.length > 0 && score.correct === topicExercises.length) {
+    if (score && topicExercises.length > 0 && score.correct === score.total && score.total === topicExercises.length) {
       completedCount++;
     }
   });
