@@ -403,7 +403,7 @@ function handleFillBlank(topicId, exerciseIndex, exercise) {
     if (!isCorrect) {
       // Trigger shake by re-applying class
       input.classList.remove('wrong');
-      void input.offsetWidth; // force reflow
+      void input.offsetWidth; // force browser reflow to restart CSS shake animation
       input.classList.add('wrong');
     }
 
@@ -517,8 +517,8 @@ function loadState() {
 function normalizeAnswer(str) {
   if (!str) return '';
   return str.trim().toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, ''); // remove diacritics for lenient matching
+    .normalize('NFD')       // decompose accented chars into base + combining mark
+    .replace(/[\u0300-\u036f]/g, ''); // strip combining diacritical marks (U+0300–U+036F)
 }
 
 function escapeHtml(str) {
